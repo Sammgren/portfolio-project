@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sammgren</title>
+    <link href="reset.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <header class="top-sticky">
+        <nav>
+            <img class="nav-flex-items">
+            <ul class="nav-flex-items">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="col intro">
+            <article>
+                <header>
+                    <h1>Hello! I'm Sammantha Lindgren.</h1>
+                </header>
+                <section>
+                    <p>I'm a full-stack developer with an eye for form and function.</p>
+                    <p>Efficient reusable code and Inclusive design are my bread and butter.</p>
+                    <button class="see">See What I've Made!</button>
+                </section>
+            </article>
+        </section>
+        <section class="col skills">
+            <article>
+                <header>
+                    <h2>My Skills</h2>
+                </header>
+                <section class="container">
+                    <section class="col col-2">
+                        <h3>Design</h3>
+                        <section class="design"></section>
+                    </section>
+                    <section class="col col-2">
+                        <h3>Development</h3>
+                        <section class="dev"></section>
+                    </section>
+                    <section class="col col-2">
+                        <h3>Management</h3>
+                        <section class="mang"></section>
+                    </section>
+                </section>
+            </article>
+        </section>
+        <section class="contact">
+            <article>
+                <header>
+                    <h2>Contact Me!</h2>
+                </header>
+                <section>
+                    <form>
+                        <label for="contact">Your Name:</label>
+                        <input type="text" name="contact" id="contact" placeholder="Full Name">
+                        <br>
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" pattern=".+@globex\.com" placeholder="YourEmail@Example.com">
+                        <br>
+                        <label for="reason">What Can I Help You With</label>
+                        <input list="reasonings" name="reason" id="reason" placeholder="...?">
+                        <datalist id="reasonings">
+                            <option value="Web Development">Web Developement</option>
+                            <option value="Web Design">Web Design</option>
+                            <option value="Graphic Design">Graphic Design</option>
+                        </datalist>
+                        <br>
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="50">
+                        </textarea>
+                    </form>
+                </section>
+            </article>
+        </section>
+    </main>
+    <footer><p>Kindly Wisconsin Made</p></footer>
+</body>
+</html>
