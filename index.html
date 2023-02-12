@@ -5,7 +5,6 @@
     <title>Sammgren</title>
     <link href="reset.css" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
-    
 </head>
 <body>
     <header class="top-sticky">
@@ -18,18 +17,32 @@
             </ul>
         </nav>
     </header>
-    <main class="container">
-        <section class="col intro">
-            <article>
-                <header>
-                    <h1>Hello! I'm Sammantha Lindgren.</h1>
-                </header>
+    <main>
+        <section class="slider">
+            <div class="item">
+                <div class="blue-test"></div>
+            </div>
+            <div class="item">
+                <div class="green-test"></div>
+            </div>
+            <div class="item">
+                <div class="red-test"></div>
+            </div>
+            <div class="item">
+                <div class="yellow-test"></div>
+            </div>
+            <a class="previous" onclick="previousSlide()">Previous</a>
+            <a class="next" onclick="nextSlide()">Next</a>
+        </section>
+        <section class="hero intro">
+            <div class="hero-inner">
+                <h1>Hello! I'm Sammantha Lindgren.</h1>
                 <section>
                     <p>I'm a full-stack developer with an eye for form and function.</p>
                     <p>Efficient reusable code and Inclusive design are my bread and butter.</p>
                     <button class="see">See What I've Made!</button>
                 </section>
-            </article>
+            </div>
         </section>
         <section class="col skills">
             <article>
@@ -82,5 +95,6 @@
         </section>
     </main>
     <footer><p>Kindly Wisconsin Made</p></footer>
+    <script type="text/javascript"src="script.js"></script>
 </body>
 </html>

@@ -50,7 +50,6 @@ nav ul li a:hover {
     transition: ease-in-out 1s;
 }
 
-
 /* Nav Logo */
 .logo {
     display: flex;
@@ -64,38 +63,109 @@ nav ul li a:hover {
     height: 75px;
 }
 
-/*General Flex Container Style */
-
-.container {
-    /* background-color: #c5c5c5; */
+/* HERO DISPLAY */
+.hero {
+    /* width: 100vw; */
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    gap: 1rem;
-    padding: 1rem;
-    width: 85%;
-    margin: 0 auto;
-    margin-top: 1rem;
-    max-width: 1400px;
-    flex-direction: column;
+    text-align: center;
+    border: solid 3px #232325;
 }
 
-.col {
-    /* background-color: dodgerblue; */
-    /* color: white; */
-    padding: 1rem;
-    /* height: 4rem; */
-    width: 100%;
+/* THE SLIDER: */
+.slider{
+    /*max-width: 90%;
+    /* The position of the element is set to its original position: 
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;*/
 }
 
-/* Main Container Styles */
+/* The picture is scaled in relation to the parent element */
+.slider .item div {
+    /*object-fit: cover;
+    width: 100vw;
+    height: 100vh; */
+}
+/* Back and Forth Buttons: */
+.slider .previous, .slider .next {
+    /* Adds an icon to the cursor when it is over the button: */
+    cursor: pointer;
+    /* The position of the element is set relative to the borders of the browser: */
+    position: absolute;
+    top: 50vh;
+    width: auto;
+    margin-top: -1vh;
+    padding-top: 7vmin;
+    padding-bottom: 7vmin;
+    /*Styling the buttons themselves */
+    color: white;
+    font-size: 16px;
+    /* Background fading on hover: */
+    transition: 0.6s ease;
+    /* Rounding the borders: */
+    border-radius: 0 3px 3px 0;
+}
 
-main.container {
-    padding-top: 7.75rem;
+.slider .next {
+    right: 10vw;
+    border-radius: 3px 0 0 3px;
+}
+
+.slider .previous {
+    left: 10vw;
+}
+
+/* Hover Styles */
+
+.slider .previous:hover,
+.slider .next:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Slide Animation */
+.slider .item {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* TEST STYLES */
+
+div.blue-test {
+    /* width: 100vw; */
+    height: 100vh;
+    background-color: blue;
+}
+
+div.red-test {
+    /* width: 100vw; */
+    height: 100vh;
+    background-color: red;
+}
+
+div.green-test {
+    /* width: 100vw; */
+    height: 100vh;
+    background-color: green;
+}
+
+div.yellow-test {
+    width: 100vw;
+    height: 100vh;
+    background-color: yellow;
 }
 
 /* Intro Container Styles */
-
 .intro {
     margin: 0 auto;
     text-align: center;
@@ -161,9 +231,7 @@ input:hover, textarea:hover {
 
 
 /* Footer Styles */
-
 footer {
-    width: 100%;
     background-color: #151515;
     margin-top: 24rem;
     padding: 2rem;
