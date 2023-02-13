@@ -1,0 +1,198 @@
+/* Basic Body Styles */
+html {
+    font-size: 16px;
+}
+
+html, body {
+    margin: 0; height: 100%; overflow: hidden
+}
+
+h1 {
+    font-size: calc(4.75rem + 1vh);
+}
+
+h2 {
+    font-size: calc(4.0rem + 1vh);
+}
+
+h3 {
+    font-size: calc(3.25rem + 1vh);
+}
+
+h4 {
+    font-size: calc(2.50rem + 1vh);
+}
+
+h5 {
+    font-size: calc(1.75rem + 1vh);
+}
+
+h6 {
+    font-size: calc(1.25rem + 1vh);
+}
+
+
+p,a,li {
+    font-size: calc(1rem + 1vw);
+}
+body {
+    background-color: #e5e5f3;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-nav {
+    padding: 1rem;
+}
+
+.logo {
+    background-color: #fff;
+}
+
+/* LEFT HEADER */
+header {
+    background-color:#232325;
+    flex: 1 1 25%;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-name: slideInLeft;
+    height: 100vh;
+    color: #e5e5f3;
+}
+
+/* Nav Animation */
+
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+
+.logo {
+    width: 175px;
+    height: 175px;
+    margin: 0 auto;
+}
+
+.inner-nav h3, .inner-nav h5, .inner-nav h6 {
+    padding: 1.5rem 0;
+    color:#e5e5f5;
+    text-align: center;
+}
+
+.inner-nav {
+    align-items: center;
+}
+
+
+/* SLIDING CONTAINER */
+.sliding-container {
+    flex: 1 1 75%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#slideContainer {
+    flex: 1 1 70%;
+}
+
+
+.section {
+    height: 100vh;
+    transition: transform 0.3s ease-out;
+}
+
+/* SLIDER CONTROLS */
+
+#controllers {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+}
+
+
+/* About Container Styles */
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hello {
+    font-size: 175%;
+}
+
+.about h1, .about h2, .about h3 {
+    margin-bottom: 2%;
+}
+
+.about h2 {
+    max-width: 58%;
+    font-size: 202%;
+}
+
+.about h3 {
+    max-width: 58%;
+    font-size: 153%;
+    text-align: center;
+}
+
+button.see {
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Skills Container Styles */
+
+.skills {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.col-2 {
+    flex-basis: 50%;
+}
+
+.skills .container {
+    flex-direction: row;
+}
+
+.design, .dev, .mang {
+    background-color: #fff;
+    border: solid 1px #151515;
+    min-height: 10rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Contact Form */
+input, textarea {
+    padding: 8px;
+    margin: 10px 0;
+}
+
+input:hover, textarea:hover {
+    background-color: #f3f3f3;
+    transition: all ease-in-out .65s;
+}
+

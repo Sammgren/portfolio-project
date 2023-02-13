@@ -1,41 +1,60 @@
-/* SLIDER FUNCTIONALITY */
-
-/* Setting Default Slider */
-let slideIndex = 1;
-/* We call the function that is implemented below: */
-showSlides(slideIndex);
-/* Increase the index 1 - show the next slide: */ 
-function nextSlide() {
-    showSlides(slideIndex += 1);
-}
-/* Decrease the index by 1 - show the previous slide: */
-function previousSlide() {
-    showSlides(slideIndex -= 1);
-}
-/* Set the current slide: */
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-/* Flip Function */
-function showSlides(n) {
-    let i;
-
-    /* We refer to the element with the class name "item" to the pictures */
-    let slides = document.getElementsByClassName("item");
-
-    /* Checking the number of slides: */
-    if (n > slides.length) {
-        slideIndex = 1
+class slideContainer{
+    constructor(selector, opts){
+        this.$root = document.querySelector(selector)
+        this.$sections = this.$root.querySelectorAll('.section')
+        this.opts = opts
+        this.$up = null
+        this.$down = null
+        this.level = 0
+        this.bound = this.$sections.length
+        this.isAnimating = false
+        this.#setup()
     }
-    if (n < 1) {
-        slideIndex = slides.length
+    #renderNav() {
+        let arrows = 
+        `<svg id='control-up' width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.4019 1.5C18.5566 -0.5 21.4434 -0.5 22.5981 1.5L39.0526 30C40.2073 32 38.7639 34.5 36.4545 34.5H3.54552C1.23612 34.5 -0.207259 32 0.947441 30L17.4019 1.5Z" fill="white"/>
+        </svg>
+        <svg id='control-down' width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.4019 1.5C18.5566 -0.5 21.4434 -0.5 22.5981 1.5L39.0526 30C40.2073 32 38.7639 34.5 36.4545 34.5H3.54552C1.23612 34.5 -0.207259 32 0.947441 30L17.4019 1.5Z" fill="white"/>
+        </svg>
+        `
+        let container = document.createElement("div")
+        container.id = container.classList = 'controllers'
+        container.innerHTML = arrows
+        this.$root.appendChild(container)
     }
+    #setup() {
+        this.#renderNav()
+        this.$up = document.querySelector('#control-up')
+        this.$down = document.querySelector('#control-down')
+        this.$sections.forEach(elem => elem.style.transition = `transform ${+this.opts.animDuration/1000 + 's' || '0.3s'}`)
+        this.$sections.forEach(elem => elem.style.transitionTimingFunction = this.opts.easing ? this.opts.easing : 'linear')
 
-    /* Loop through each slide in a for loop: */
-    for (let slide of slides) {
-        slide.style.display = "none";
+        this.moveup = this.moveup.bind(this)
+        this.movedown = this.movedown.bind(this)
+
+        this.$up.addEventListener('click', this.moveup)
+        this.$down.addEventListener('click', this.movedown)
+        this.$root.addEventListener('wheel', (event)=> {
+            if(event.deltaY > 0) this.movedown()
+            else this.moveup()
+        })  
     }
-    /* Making an element block: */
-    slides[slideIndex - 1].style.display ="block";
+    moveup() {
+        if (this.level != 0 && !this.isAnimating) {
+            this.isAnimating = true
+            this.level++
+            this.$sections.forEach(elem => elem.style.transform = `translateY(${this.level*100}%)`)
+            setTimeout(() => { this.isAnimating = false }, this.opts.animDuration || 300)
+        }
+    }
+    movedown() {
+        if ((this.level*-1) +1 < this.bound && !this.isAnimating) {
+            this.isAnimating = true
+            this.level--
+            this.$sections.forEach(elem => elem.style.transform = `translateY(${this.level*100}%)`)
+            setTimeout(() => { this.isAnimating = false }, this.opts.animDuration || 300)
+        }
+    }  
 }
- 
